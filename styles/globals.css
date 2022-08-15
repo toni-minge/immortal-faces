@@ -1,9 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply bg-dark text-white;
 }
 
 a {
@@ -15,12 +20,29 @@ a {
   box-sizing: border-box;
 }
 
+section {
+  @apply h-screen w-full grid items-center justify-center mx-auto max-w-7xl p-8;
+  grid-template-columns: 50px calc(100% - 100px) 50px;
+  grid-template-rows: 50px calc(100% - 100px) 50px;
+}
+
+.section-content {
+  @apply col-start-2 row-start-2;
+}
+
+.section-icon-container {
+  @apply col-start-2 row-start-3 text-center;
+}
+
+.cromatic-aberration-effect {
+  filter: drop-shadow(2px 0px 0px #FD3E3E) drop-shadow(-2px -2px 0px #4DE8F4)
+}
+
+.cromatic-aberration-effect-sm {
+  filter: drop-shadow(1px 0px 0px #FD3E3E) drop-shadow(-1px -1px 0px #4DE8F4)
+}
+
+
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+
 }
