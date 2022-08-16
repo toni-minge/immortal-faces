@@ -48,7 +48,10 @@ export default function FaqSegment() {
 
   return (
     <div className="w-full text-left">
-      <h2 className="-mt-8 mb-6">FAQ</h2>
+      <div className="">
+        <img className="h-24 -ml-2 -mb-8 opacity-80 cromatic-aberration-effect-sm" src="./elements/symbol_05.png"/>
+        <h2 className="mb-12">Frequently Asked Questions</h2>
+      </div>
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-5 flex flex-col gap-4">
           {faq_elements.map((d, i) =>

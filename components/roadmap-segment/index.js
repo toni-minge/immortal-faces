@@ -36,6 +36,7 @@ const roadmap_elements = [
 export default function RoadmapSegment() {
   return (
     <div className="w-full">
+      <img className="h-24 -mb-6 opacity-80 mx-auto cromatic-aberration-effect-sm" src="./elements/symbol_04.png"/>
       <h2 className="-mt-8 mb-12">Roadmap</h2>
       <div className="grid grid-cols-4 gap-8">
         {roadmap_elements.map((d, i) =>

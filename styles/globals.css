@@ -29,9 +29,11 @@ h3 {
 }
 
 section {
-  @apply min-h-screen w-full grid items-center justify-center mx-auto max-w-7xl p-8;
+  @apply w-full grid items-center justify-center mx-auto max-w-7xl snap-start;
   grid-template-columns: 50px calc(100% - 100px) 50px;
-  grid-template-rows: 50px calc(100% - 100px) 50px;
+  grid-template-rows: 50px calc(100% - 50px);
+  min-height: calc(100vh - 116px);
+  padding: 32px;
 }
 
 button {
@@ -47,12 +49,24 @@ button.active-button {
   filter: drop-shadow(0px 0px 10px #00FFA3)
 }
 
+.snap-scroll-container {
+  @apply h-screen w-screen overflow-y-auto;
+}
+
 .section-content {
-  @apply col-start-2 row-start-2 p-8;
+  @apply col-start-2 row-start-2 grid items-center p-16;
+  min-height: calc(100% - 100px)
 }
 
 .section-icon-container {
-  @apply col-start-2 row-start-3 text-center grid items-center justify-center;
+  @apply col-start-2 row-start-1 text-center grid items-center justify-center;
+}
+
+.community-badge {
+  @apply bg-red-200 text-xs rounded-tl rounded-br;
+  padding: 1px 6px;
+  background-color: #3F3F3F;
+  display: inline-block;
 }
 
 .cromatic-aberration-effect {

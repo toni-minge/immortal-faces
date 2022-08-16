@@ -7,7 +7,7 @@ const position = {
 
 export default function Cross({pos}) {
   return (
-    <div className={`w-full h-full ${position[pos]} relative opacity-80`}>
+    <div className={`w-full h-full ${position[pos]} relative`}>
       <span className="absolute h-full w-full border-r-2 translate -translate-x-1/2 cromatic-aberration-effect"></span>
       <span className="absolute h-full w-full border-b-2 translate -translate-y-1/2 cromatic-aberration-effect"></span>
     </div>
