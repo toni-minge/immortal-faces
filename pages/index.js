@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -8,6 +10,17 @@ import HowDoesItWorkSegment from '../components/how-does-it-work-segment'
 import RoadmapSegment from '../components/roadmap-segment'
 import FaqSegment from '../components/faq-segment'
 
+import { useNffContext } from '../services/context/nff-context'
+
+import {
+  checkWalletIsConnected,
+  connectWalletHandler,
+  addWalletListener,
+  initContract,
+  getContractData,
+  checkIfWhitelisted,
+} from '../services/actions/nff-functions'
+
 const Crosses = () => {
   return (
     <>
@@ -17,8 +30,46 @@ const Crosses = () => {
   )
 }
 
+const is_light_mode = true
 
 export default function Home() {
+  const nff = useNffContext()
+
+  const {
+    auth,
+    is_light_mode,
+    account,
+    transaction_hash,
+    error,
+    status,
+    loading,
+    contract,
+    max_supply,
+    current_supply,
+    is_whitelisted,
+    whitelist_cost,
+    public_cost
+  } = nff.state
+
+
+  // init contract
+  useEffect(() => {
+    _initContract(is_light_mode)
+  }, [account])
+
+  // get contract
+  useEffect(() => {
+    if (contract !== null){
+      getContractData(nff.dispatch, contract)
+    }
+  }, [contract])
+
+  function _initContract(_is_light){
+    if (contract === null){
+      initContract(nff.dispatch, _is_light)
+    }
+  }
+
   return (
     <div className="">
       <Head>
@@ -79,7 +130,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <CommunitySegment />
+              <CommunitySegment nffState={nff.state}/>
             </div>
           </div>
           <div className="section-icon-container">

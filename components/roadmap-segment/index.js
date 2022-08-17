@@ -40,7 +40,7 @@ export default function RoadmapSegment() {
       <h2 className="-mt-8 mb-12">Roadmap</h2>
       <div className="grid grid-cols-4 gap-8">
         {roadmap_elements.map((d, i) =>
-          <div className="max-w-xs">
+          <div key={'roadmap_' + i} className="max-w-xs">
             <h3 className="text-2xl mb-4 green-glow">{i+1}. {d.title}</h3>
             <p className="opacity-80">{d.text}</p>
           </div>

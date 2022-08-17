@@ -55,14 +55,14 @@ export default function FaqSegment() {
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-5 flex flex-col gap-4">
           {faq_elements.map((d, i) =>
-            <button onClick={() => selectQuestion(i)} className={`w-full text-left ${i === activeIndex ? 'active-button' : 'inactive-button'}`}>
+            <button key={'question' + i} onClick={() => selectQuestion(i)} className={`w-full text-left ${i === activeIndex ? 'active-button' : 'inactive-button'}`}>
               {i+1}. {d.question}
             </button>
           )}
         </div>
         <div className="col-span-7">
           <h3 className="green-glow">{faq_elements[activeIndex].question}</h3>
-          {faq_elements[activeIndex].answer.split('/').map((d, i) => <p className="mb-4">{d}</p>)}
+          {faq_elements[activeIndex].answer.split('/').map((d, i) => <p key={i} className="mb-4">{d}</p>)}
         </div>
 
       </div>
