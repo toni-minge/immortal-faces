@@ -81,7 +81,10 @@ export default function Home() {
         <section>
           <Crosses />
           <div className="section-content">
-            <h1 className="text-8xl">Hallo Welt, ich sehe ja fast wie TikTok aus</h1>
+            <div>
+              <img className="h-20 mx-auto mb-4 logo-hover  cromatic-aberration-effect-sm" src="/elements/imf_logo.svg"/>
+              <h1 className="text-6xl text-center">Immortal Faces <br />NFT</h1>
+            </div>
           </div>
         </section>
 

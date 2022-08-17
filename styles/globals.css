@@ -116,6 +116,19 @@ button.active-button {
   }
 }
 
+.logo-hover {
+  animation: hover 3s ease-in-out infinite;
+}
+
+@keyframes hover {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
 
 }
