@@ -36,11 +36,11 @@ const roadmap_elements = [
 export default function RoadmapSegment() {
   return (
     <div className="w-full">
-      <img className="h-24 -mb-6 opacity-80 mx-auto cromatic-aberration-effect-sm" src="./elements/symbol_04.png"/>
+      <img className="h-24 -mb-6 mx-auto cromatic-aberration-effect-sm" src="./elements/symbol_04.png"/>
       <h2 className="-mt-8 mb-12">Roadmap</h2>
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-12 gap-8">
         {roadmap_elements.map((d, i) =>
-          <div key={'roadmap_' + i} className="max-w-xs">
+          <div key={'roadmap_' + i} className="max-w-xs col-span-12 sm:col-span-6 md:col-span-4 mx-auto">
             <h3 className="text-2xl mb-4 green-glow">{i+1}. {d.title}</h3>
             <p className="opacity-80">{d.text}</p>
           </div>

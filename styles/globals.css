@@ -46,10 +46,18 @@ a {
 
 
 section {
-  @apply w-full grid items-center justify-center mx-auto max-w-7xl snap-start p-4;
+  @apply w-full grid items-center justify-center mx-auto max-w-7xl snap-start;
   grid-template-columns: 50px calc(100% - 100px) 50px;
-  grid-template-rows: 50px calc(100% - 50px);
-  min-height: calc(100vh - 116px);
+  grid-template-rows: 50px calc(100% - 100px);
+  min-height: calc(100vh - 50px - 2rem);
+}
+
+@media (max-width: 767px) {
+  section {
+    grid-template-columns: 20px calc(100% - 40px) 20px;
+    grid-template-rows: 20px calc(100% - 40px);
+    min-height: calc(100vh - 20px - 2rem);
+  }
 }
 
 button {
@@ -70,7 +78,7 @@ button.active-button {
 }
 
 .section-content {
-  @apply col-start-2 row-start-2 grid items-center xl:p-16 p-0 sm:p-4 md:p-8;
+  @apply col-start-2 row-start-2 grid items-center xl:p-16 p-0 sm:p-4 md:p-8 py-12;
   min-height: calc(100% - 100px)
 }
 

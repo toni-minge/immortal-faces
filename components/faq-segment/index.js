@@ -49,18 +49,21 @@ export default function FaqSegment() {
   return (
     <div className="w-full text-left">
       <div className="">
-        <img className="h-24 -ml-2 -mb-8 opacity-80 cromatic-aberration-effect-sm" src="./elements/symbol_05.png"/>
+        <img className="h-24 -ml-2 -mb-8  cromatic-aberration-effect-sm" src="./elements/symbol_05.png"/>
         <h2 className="mb-12">Frequently Asked Questions</h2>
       </div>
       <div className="grid grid-cols-12 gap-8">
-        <div className="col-span-5 flex flex-col gap-4">
+        <div className="md:col-span-5 col-span-12 flex flex-col gap-4">
           {faq_elements.map((d, i) =>
-            <button key={'question' + i} onClick={() => selectQuestion(i)} className={`w-full text-left ${i === activeIndex ? 'active-button' : 'inactive-button'}`}>
-              {i+1}. {d.question}
-            </button>
+            <div className="w-full text-left ">
+              <button key={'question' + i} onClick={() => selectQuestion(i)} className={`text-left w-full ${i === activeIndex ? 'active-button mb-4 md:mb-0' : 'inactive-button'}`}>
+                {i+1}. {d.question}
+              </button>
+              {faq_elements[activeIndex].answer.split('/').map((d, j) => <p key={j} className={`mb-4 md:mb-0 md:hidden display:block ${i !== activeIndex && 'hidden'}`}>{d}</p>)}
+            </div>
           )}
         </div>
-        <div className="col-span-7">
+        <div className="md:col-span-7 col-span-12 hidden md:block">
           <h3 className="green-glow">{faq_elements[activeIndex].question}</h3>
           {faq_elements[activeIndex].answer.split('/').map((d, i) => <p key={i} className="mb-4">{d}</p>)}
         </div>

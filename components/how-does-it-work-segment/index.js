@@ -1,26 +1,26 @@
 const how_does_it_work_elements = [
   {
-    'img': './elements/a_how_to_01.png',
+    'img': './elements/how_to_01.svg',
     'title': 'You',
     'text': 'Sit down in front of your webcam and prepare yourself. This will be a special moment.'
   },
   {
-    'img': './elements/a_how_to_02.png',
+    'img': './elements/how_to_02.svg',
     'title': 'Pixels',
     'text': 'Your Image will be pixelated. Pixels are very important to show that you’re an NFT.'
   },
   {
-    'img': './elements/a_how_to_03.png',
+    'img': './elements/how_to_03.svg',
     'title': 'Metadata',
     'text': 'Add Metadata to yourself. How’s your name? What’s your mood? Tell the world about you.'
   },
   {
-    'img': './elements/a_how_to_04.png',
+    'img': './elements/how_to_04.svg',
     'title': 'Mint',
     'text': 'Connect your Metamask and make it official. This is the only way to verify you as a human.'
   },
   {
-    'img': './elements/a_how_to_05.png',
+    'img': './elements/how_to_05.svg',
     'title': 'Immortal Society',
     'text': 'Help us to complete the Immortal Society, a combination of 1024 individuals. 8 rounds each.'
   }
@@ -29,12 +29,12 @@ const how_does_it_work_elements = [
 export default function HowDoesItWorkSegment() {
   return (
     <div className="w-full">
-      <img className="h-24 -mb-6 opacity-80 mx-auto cromatic-aberration-effect-sm" src="./elements/symbol_01.png"/>
+      <img className="h-24 -mb-6 mx-auto cromatic-aberration-effect-sm" src="./elements/symbol_01.png"/>
       <h2 className="-mt-8 mb-12">How does it work?</h2>
-      <div className="grid grid-cols-5 gap-8">
+      <div className="grid grid-cols-10 gap-8 gap-y-12">
         {how_does_it_work_elements.map((d, i) =>
-          <div key={'hdiw_' + i} className="max-w-xs">
-            <img className="mx-auto w-24" src={d.img}/>
+          <div key={'hdiw_' + i} className="max-w-xs col-span-10 sm:col-span-5 mx-auto md:col-span-5 xl:col-span-2">
+            <img className="mx-auto w-24 opacity-90" src={d.img}/>
             <h3 className="text-2xl mb-4 green-glow">{d.title}</h3>
             <p className="opacity-80">{d.text}</p>
           </div>

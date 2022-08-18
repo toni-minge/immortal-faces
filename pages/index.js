@@ -71,7 +71,7 @@ export default function Home() {
   }
 
   return (
-    <div className="">
+    <div className="p-4 w-vw">
       <Head>
         <title>Immortal Faces - NFT</title>
         <meta name="description" content="Immortal Faces is an NFT project which let you become immortal on the blockchain." />
@@ -81,9 +81,11 @@ export default function Home() {
         <section>
           <Crosses />
           <div className="section-content">
-            <div>
-              <img className="h-20 mx-auto mb-4 logo-hover  cromatic-aberration-effect-sm" src="/elements/imf_logo.svg"/>
-              <h1 className="text-6xl text-center">Immortal Faces <br />NFT</h1>
+            <div className="flex flex-col text-center gap-4">
+              <img className="h-16 mx-auto mb-4 logo-hover  cromatic-aberration-effect-sm" src="/elements/imf_logo.svg"/>
+              <img className="h-14 mx-auto cromatic-aberration-effect-sm" src="/elements/imf_logo_font.svg"/>
+              <span className="green-glow">Become immortal on <br/>the blockchain</span>
+              <button className="w-48 mt-8 mx-auto py-1 px-1 bg-white text-dark cromatic-aberration-effect-sm"> GET STARTED </button>
             </div>
           </div>
         </section>
@@ -92,12 +94,12 @@ export default function Home() {
           <Crosses />
           <div className="section-content">
             <div className="grid grid-cols-12 gap-8 items-center">
-              <div className="col-span-5">
-                <img className="h-24 -ml-3 -mb-6 opacity-80 cromatic-aberration-effect-sm" src="./elements/symbol_02.png"/>
-                <h2 className="">What is <br/> Immortal Faces NFT?</h2>
+              <div className="md:col-span-5 col-span-12">
+                <img className="h-24 -ml-2 -mb-6 cromatic-aberration-effect-sm" src="./elements/symbol_02.png"/>
+                <h2 className="mb-4">What is <br/> Immortal Faces NFT?</h2>
                 <p>Immortal Faces is a NFT project with which you can become immortal in the blockchain. Be a part not only of the art project, be part but of something bigger. And in addition: All proceeds go back to the owners.  </p>
               </div>
-              <div className="col-span-7">
+              <div className="md:col-span-7 col-span-12">
                 <img src="./img/header_video_test.jpg"/>
               </div>
             </div>
@@ -123,7 +125,7 @@ export default function Home() {
           <Crosses />
           <div className="section-content">
             <div>
-              <img className="h-24 -ml-2 -mb-8 opacity-80 cromatic-aberration-effect-sm" src="./elements/symbol_03.png"/>
+              <img className="h-24 -ml-2 -mb-8 cromatic-aberration-effect-sm" src="./elements/symbol_03.png"/>
               <div className="flex items-center mb-6">
                 <h2 className="inline-block mb-1">
                   Our Latest Members
