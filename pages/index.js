@@ -110,7 +110,7 @@ export default function Home() {
 
           <div className="section-icon-container">
             <div className="flex gap-4">
-              <a target="_blank" rel="noopener" href="https://twitter.com/immortal_faces">
+              <a target="_blank" rel="noreferrer" href="https://twitter.com/immortal_faces">
                 <img className="h-8" src="./elements/icons8-twitter.svg" />
               </a>
             </div>
@@ -135,7 +135,7 @@ export default function Home() {
                   Our Latest Members
                 </h2>
                 <span className="inline-block sm:ml-4 underline green-glow cursor-pointer">
-                  <a target="_blank" rel="noopener" href="https://opensea.io/collection/non-fungible-faces-off-chain">See more on OpenSea</a>
+                  <a target="_blank" rel="noreferrer" href="https://opensea.io/collection/non-fungible-faces-off-chain">See more on OpenSea</a>
                 </span>
               </div>
 

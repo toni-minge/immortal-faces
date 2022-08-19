@@ -4,7 +4,7 @@ import MobileCollapseItem from './mobile-collapse-item'
 const faq_elements = [
   {
     'question': 'Who is behind Immortal Faces NFT?',
-    'answer': <><p>The project was initiated by Toni Minge, painter and programmer from Berlin.  </p><p><a target="_blank" rel="noopener" href="https://toniminge.de">Toni Minge</a>, born in a cold summer in 1995, was raised in a small village in the desert of Germany – so-called Saxony-Anhalt. From there he found his way to Leipzig where he studied fine arts at <a target="_blank" rel="noopener" href="https://www.hgb-leipzig.de/">Hochschule für Grafik und Buchkunst</a>. After then everything changed: Berlin has become his new home.</p><p>Since 2019, he leads his own agency <a target="_blank" rel="noopener" href="https://minge-schmidt.com">Minge+Schmidt</a> as founder and head of programming with his good friend and co-founder Johannes Schmidt. Together they have worked with a wide range of clients including Native Instruments, Arte, TU Berlin, yoona.ai and many more.</p><p>A crucial theme for Toni Minge's artistic work is the investigation of non-esoteric aura and its reproducibility. The capitalization and digitalization of social structures play an essential role in this, which is also the origin of Toni Minge's latest project: "Immortal Faces". An attempt to investigate the influence of capital and digitality in human interaction through NFTs. </p></>
+    'answer': <><p>The project was initiated by Toni Minge, painter and programmer from Berlin.  </p><p><a target="_blank" rel="noreferrer" href="https://toniminge.de">Toni Minge</a>, born in a cold summer in 1995, was raised in a small village in the desert of Germany – so-called Saxony-Anhalt. From there he found his way to Leipzig where he studied fine arts at <a target="_blank" rel="noopener" href="https://www.hgb-leipzig.de/">Hochschule für Grafik und Buchkunst</a>. After then everything changed: Berlin has become his new home.</p><p>Since 2019, he leads his own agency <a target="_blank" rel="noopener" href="https://minge-schmidt.com">Minge+Schmidt</a> as founder and head of programming with his good friend and co-founder Johannes Schmidt. Together they have worked with a wide range of clients including Native Instruments, Arte, TU Berlin, yoona.ai and many more.</p><p>A crucial theme for Toni Minge's artistic work is the investigation of non-esoteric aura and its reproducibility. The capitalization and digitalization of social structures play an essential role in this, which is also the origin of Toni Minge's latest project: "Immortal Faces". An attempt to investigate the influence of capital and digitality in human interaction through NFTs. </p></>
   },
   {
     'question': 'What is an NFT?',
@@ -60,7 +60,7 @@ const faq_elements = [
   },
   {
     'question': 'Is the NFF Smart Contract verified?',
-    'answer': <p>Yes! You can look it up on <a target="_blank" rel="noopener" href="https://etherscan.io/address/0x29674B7feD83a3D0Ca54Bf9A6426f3f4212C8Bbb#code">etherscan.</a></p>
+    'answer': <p>Yes! You can look it up on <a target="_blank" rel="noreferrer" href="https://etherscan.io/address/0x29674B7feD83a3D0Ca54Bf9A6426f3f4212C8Bbb#code">etherscan.</a></p>
   }
 ]
 
