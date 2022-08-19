@@ -132,7 +132,7 @@ export default function Home() {
               <img className="h-24 -ml-2 -mb-8 cromatic-aberration-effect-sm" src="./elements/symbol_03.png"/>
               <div className="flex flex-col sm:flex-row sm:items-center mb-6">
                 <h2 className="inline-block mb-1">
-                  Our Latest Members 
+                  Our Latest Members
                 </h2>
                 <span className="inline-block sm:ml-4 underline green-glow cursor-pointer">
                   <a target="_blank" rel="noreferrer" href="https://opensea.io/collection/non-fungible-faces-off-chain">See more on OpenSea</a>
@@ -175,7 +175,7 @@ export default function Home() {
             </div>
         </section>
 
-        <div className="footer w-full border-t white p-16 flex-col flex gap-2">
+        <div className="footer w-full border-t white p-8 flex-col flex gap-2">
           <div>
             <Link href="/imprint">Imprint</Link>
 
