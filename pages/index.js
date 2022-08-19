@@ -54,23 +54,23 @@ export default function Home() {
   } = nff.state
 
 
-  // init contract
-  useEffect(() => {
-    _initContract(is_light_mode)
-  }, [account])
-
-  // get contract
-  useEffect(() => {
-    if (contract !== null){
-      getContractData(nff.dispatch, contract)
-    }
-  }, [contract])
-
-  function _initContract(_is_light){
-    if (contract === null){
-      initContract(nff.dispatch, _is_light)
-    }
-  }
+  // // init contract
+  // useEffect(() => {
+  //   _initContract(is_light_mode)
+  // }, [account])
+  //
+  // // get contract
+  // useEffect(() => {
+  //   if (contract !== null){
+  //     getContractData(nff.dispatch, contract)
+  //   }
+  // }, [contract])
+  //
+  // function _initContract(_is_light){
+  //   if (contract === null){
+  //     initContract(nff.dispatch, _is_light)
+  //   }
+  // }
 
   return (
     <div className="p-4 w-screen">

@@ -16,9 +16,10 @@ export default function CommunitySegment({nffState}) {
   const [loading, setLoading] = useState(true)
 
   const {
-    current_supply,
     max_supply
   } = nffState
+
+  const current_supply = 5
 
   useEffect(() => {
     if (current_supply !== 0 && latestMembers.length === 0){
@@ -26,7 +27,7 @@ export default function CommunitySegment({nffState}) {
       console.log(start_token)
       getNFTs(start_token)
     }
-  },[current_supply])
+  },[latestMembers.length])
 
   const getNFTs = async(start_token) => {
     setLoading(true)
