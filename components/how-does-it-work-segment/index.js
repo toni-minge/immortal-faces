@@ -31,11 +31,11 @@ export default function HowDoesItWorkSegment() {
     <div className="w-full">
       <img className="h-24 -mb-6 mx-auto cromatic-aberration-effect-sm" src="./elements/symbol_01.png"/>
       <h2 className="-mt-8 mb-12">How does it work?</h2>
-      <div className="grid grid-cols-10 gap-8 gap-y-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 sm:grid-cols-2 gap-8 gap-y-12">
         {how_does_it_work_elements.map((d, i) =>
-          <div key={'hdiw_' + i} className="max-w-xs col-span-10 sm:col-span-5 mx-auto md:col-span-5 xl:col-span-2">
+          <div key={'hdiw_' + i} className="max-w-xs col-span-1 mx-auto">
             <img className="mx-auto w-24 opacity-90" src={d.img}/>
-            <h3 className="text-2xl mb-4 green-glow">{d.title}</h3>
+            <h3 className="text-2xl mb-4 green-glow">{i + 1}. {d.title}</h3>
             <p className="opacity-80">{d.text}</p>
           </div>
         )}

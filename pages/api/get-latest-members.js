@@ -4,8 +4,6 @@ const MAINNET_CONTRACT = "0x29674B7feD83a3D0Ca54Bf9A6426f3f4212C8Bbb"
 export default async function handler(req, res) {
   const { limit, start_token} = req.query
 
-  console.log(req.query)
-
   const getNFTs = async() => {
     const base_uri = "https://eth-mainnet.g.alchemy.com/nft/v2"
     const api_key = process.env.ALCHEMY_API_KEY

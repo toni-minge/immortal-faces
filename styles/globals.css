@@ -9,6 +9,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   @apply bg-dark text-white;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -37,7 +38,7 @@ h5 {
 
 a {
   color: inherit;
-  text-decoration: none;
+  @apply underline;
 }
 
 * {
@@ -46,7 +47,7 @@ a {
 
 
 section {
-  @apply w-full grid items-center justify-center mx-auto max-w-7xl snap-start;
+  @apply  grid items-center justify-center mx-auto max-w-7xl;
   grid-template-columns: 50px calc(100% - 100px) 50px;
   grid-template-rows: 50px calc(100% - 100px);
   min-height: calc(100vh - 50px - 2rem);

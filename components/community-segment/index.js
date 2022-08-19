@@ -48,7 +48,7 @@ export default function CommunitySegment({nffState}) {
         const age = d.metadata?.attributes?.find(a => a.trait_type === 'age')?.value
 
         return (
-          <div className="" key={'face_' + i}>
+          <div style={{maxWidth: '250px'}} className="mx-auto w-full" key={'face_' + i}>
             <div style={{paddingBottom: '100%'}} className="relative w-full mb-3">
               <img className="mb-2 absolute w-full" src={d.media[0].raw}/>
             </div>

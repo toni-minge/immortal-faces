@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -9,6 +10,7 @@ import CommunitySegment from '../components/community-segment'
 import HowDoesItWorkSegment from '../components/how-does-it-work-segment'
 import RoadmapSegment from '../components/roadmap-segment'
 import FaqSegment from '../components/faq-segment'
+import MailchimpSubscribeWrapper from '../components/template/mailchimp-subscribe'
 
 import { useNffContext } from '../services/context/nff-context'
 
@@ -71,7 +73,7 @@ export default function Home() {
   }
 
   return (
-    <div className="p-4 w-vw">
+    <div className="p-4 w-screen">
       <Head>
         <title>Immortal Faces - NFT</title>
         <meta name="description" content="Immortal Faces is an NFT project which let you become immortal on the blockchain." />
@@ -85,21 +87,22 @@ export default function Home() {
               <img className="h-16 mx-auto mb-4 logo-hover  cromatic-aberration-effect-sm" src="/elements/imf_logo.svg"/>
               <img className="h-14 mx-auto cromatic-aberration-effect-sm" src="/elements/imf_logo_font.svg"/>
               <span className="green-glow">Become immortal on <br/>the blockchain</span>
-              <button className="w-48 mt-8 mx-auto py-1 px-1 bg-white text-dark cromatic-aberration-effect-sm"> GET STARTED </button>
+              <a href="#about" className="no-underline w-48 rounded-tl-xl rounded-br-xl mt-8 mx-auto py-1 px-1 bg-white text-dark cromatic-aberration-effect-sm"> GET STARTED </a>
+              <small className="opacity-60">pre-launch begins <br/>end of september</small>
             </div>
           </div>
         </section>
 
-        <section>
+        <section id="about">
           <Crosses />
           <div className="section-content">
-            <div className="grid grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-5 col-span-12">
+            <div className="flex gap-8 flex-col md:flex-row items-center">
+              <div className="md:w-5/12 w-full">
                 <img className="h-24 -ml-2 -mb-6 cromatic-aberration-effect-sm" src="./elements/symbol_02.png"/>
                 <h2 className="mb-4">What is <br/> Immortal Faces NFT?</h2>
-                <p>Immortal Faces is a NFT project with which you can become immortal in the blockchain. Be a part not only of the art project, be part but of something bigger. And in addition: All proceeds go back to the owners.  </p>
+                <p>With Immortal Faces NFT you can become immortal as an NFT. Not only that, as a member of the Immortal Society you become part of something bigger, part of a complex work of art. And in addition, you can earn some money, since all proceeds go back into the community.</p>
               </div>
-              <div className="md:col-span-7 col-span-12">
+              <div className="md:w-7/12 w-full">
                 <img src="./img/header_video_test.jpg"/>
               </div>
             </div>
@@ -107,8 +110,9 @@ export default function Home() {
 
           <div className="section-icon-container">
             <div className="flex gap-4">
-              <img className="h-8" src="./elements/icons8-twitter.svg" />
-              <img className="h-8" src="./elements/icons8-discord-logo.svg" />
+              <a target="_blank" rel="noopener" href="https://twitter.com/immortal_faces">
+                <img className="h-8" src="./elements/icons8-twitter.svg" />
+              </a>
             </div>
           </div>
         </section>
@@ -126,11 +130,11 @@ export default function Home() {
           <div className="section-content">
             <div>
               <img className="h-24 -ml-2 -mb-8 cromatic-aberration-effect-sm" src="./elements/symbol_03.png"/>
-              <div className="flex items-center mb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center mb-6">
                 <h2 className="inline-block mb-1">
                   Our Latest Members
                 </h2>
-                <span className="inline-block ml-4 underline green-glow cursor-pointer">
+                <span className="inline-block sm:ml-4 underline green-glow cursor-pointer">
                   <a target="_blank" rel="noopener" href="https://opensea.io/collection/non-fungible-faces-off-chain">See more on OpenSea</a>
                 </span>
               </div>
@@ -145,7 +149,9 @@ export default function Home() {
         <section>
           <Crosses />
           <div className="section-content text-center">
-            <RoadmapSegment />
+            <div>
+              <RoadmapSegment />
+            </div>
           </div>
           <div className="section-icon-container">
           </div>
@@ -164,9 +170,21 @@ export default function Home() {
         <section>
           <Crosses />
             <div className="section-content text-center">
-              <h2>Newsletter</h2>
+              <h2 className="mb-4">Newsletter</h2>
+              <MailchimpSubscribeWrapper />
             </div>
         </section>
+
+        <div className="footer w-full border-t white p-16 flex-col flex gap-2">
+          <div>
+            <Link href="/imprint">Imprint</Link>
+
+          </div>
+          <div>
+            ©2022 – Toni Minge – All Rights Reserved.
+          </div>
+
+        </div>
 
     </div>
   )

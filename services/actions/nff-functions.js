@@ -5,6 +5,7 @@ import { ethers } from 'ethers';
 import toast from "../../components/template/toast";
 import contract from '../../contracts/src/NFF.json';
 import contract_light from '../../contracts/src/NFFL.json';
+import contract_light_dev from '../../contracts/src/NFF_DEV.json';
 
 const contractAddress = process.env.NODE_ENV == "development" ?
   "0x21bbc80B7016870816363C38a8078e1D572ede53" :
@@ -12,8 +13,9 @@ const contractAddress = process.env.NODE_ENV == "development" ?
 const contractAddressLight = process.env.NODE_ENV == "development" ?
   "0xfEbEE5055956265EA2e56ad879ca45400c966399" :
   "0x29674B7feD83a3D0Ca54Bf9A6426f3f4212C8Bbb";
+
 const abi = contract;
-const abi_light = contract_light;
+const abi_light = process.env.NODE_ENV == "development" ? contract_light_dev : contract_light;
 
 export const checkWalletIsConnected = async (dispatch) => {
   const { ethereum } = window;
