@@ -190,10 +190,10 @@ export default function Home() {
                         { account === null ? 'connect wallet' : getSubstring(account) }
                     </button>
                 </div>
-                <small className="inline-block opacity-50">(Currently only availiable for beta testers)</small>
+                <small className="inline-block opacity-50">(Currently only availiable for pre-launch members)</small>
               </div>
 
-              <div className="flex flex-wrap justify-center md:justify-start md:gap-16 gap-0 gap-y-8 text-left mt-4">
+              <div className="flex flex-wrap justify-center md:justify-start md:gap-16 gap-0 gap-y-8 text-left mt-4 scale-95">
                 <div className="relative md:w-5/12 w-full">
                   <div className="sticky top-8 w-full">
                     <div className="max-w-md w-full md:px-0 mx-auto">
