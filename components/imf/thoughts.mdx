@@ -1,0 +1,102 @@
+<p id="0." className="md:text-7xl sm:text-6xl text-5xl">Considerations</p>
+
+As pak once said, “OpenSea is not a market, it is a medium” - for me, as a trained artist, it was always important to see the medium is included in the artwork. For example, think of René Magritte’s painting “Ceci n’est pas une pipe” (known as *[This is not a pipe](https://en.wikipedia.org/wiki/The_Treachery_of_Images)*). This painting, containing a very simple message, is essential to modern art after WWII and the conceptualization of contemporary art — the medium, according to Magritte’s idea, is always part of the artwork itself. Even further: The medium is important even if there is no medium at all.
+
+After some months of watching silently and slowly understanding this whole NFT movement, I found just very few artists being aware of these whole new mediums called community, utility, and blockchain. To name some projects: “[merge](https://opensea.io/collection/m).” and “[LOSTPOETS](https://opensea.io/collection/lostpoets)” by Murat Pak und “[The Currency](https://opensea.io/collection/thecurrency)” by Damien Hirst inspired me a lot to create a project which is considering these new mediums as part of the artwork.
+
+So I got started and to be honest, it was a pain in the ass. Understanding all the connections and movements, which are just a reflection of our modern western world, in the end, was too overwhelming. I thought of different concepts, some more complicated, some artsier, and ended up with the idea to put faces on the blockchain.
+
+Putting faces on the blockchain seemed to be too simple at first but turned out to contain much more than expected. It combined most of my current thoughts about relationship markets, ownership, reproduction, and aura — in the end, this project reflects almost everything which made me sleepless for the last year. To explain the concept in more detail I will dedicate the following paragraphs to technical aspects, artistic considerations, and social thoughts about Non-Fungible Faces.
+
+<h2 id="1."> 1.Technical Aspects </h2>
+
+<h3 id="1.1"> 1.1 Why it is so hard to put people on the blockchain </h3>
+
+To finance my fine art studies at [HGB Leipzig](https://www.hgb-leipzig.de/) I started to do freelancing as a web designer. I started to create simple WordPress websites and ended up founding a [design studio](https://minge-schmidt.com/) with Johannes, a good friend of mine. In this studio, I am working as the Chief Technical Officer, which means my whole week (if I am currently not working on paintings for an upcoming show) is filled with more or less complex frontend and backend programming work.
+
+Having some technical experience was helpful to understand the concept of smart contracts and blockchain. Technically speaking, blockchains are more than awesome, they are our future! Being able to create trust between unknown entities without having any kind of middleman, being able to create transparent and immutable states of information is something that will change almost everything we know, in our digital world at least.
+
+But why was it so hard to put people on the blockchain? To keep it brief: One block in the Ethererum blockchain is limited to 24kb in size. Since owning an NFT means being the owner of a certain block, you can just own the data being stored inside this particular block. So bigger images (which can reach sizes up to multiple Megabytes) can’t be stored inside the chain. To solve this problem most current NFT projects store a link to a file inside a particular block. Let’s say the image of my freshly bought [Crypto Punk](https://www.larvalabs.com/cryptopunks) is stored on a Dropbox server (I don’t know how they solve this in reality) — in case the Dropbox server is going offline, you won't be able to access “your” image. This means, in the end, owning the block containing just the link to “your” image is worthless.
+
+Having centralized dependencies is contrary to a decentralized system of ownership. To solve this problem most current NFT projects use a system called IPFS which creates a pinned and decentralized link to a file — this new technology might be promising but tends to be not a perfect solution for purists. So I decided to find a solution to store an image 100% on-chain, which, in the beginning, was a bad idea.
+
+<h3 id="1.2"> 1.2 How to store images directly on-chain (in a hacky way) </h3>
+
+After reading the OpenSea Metadata documentation I found out that OpenSea is obviously accepting the raw SVG data instead of a link to a file. So I dug deeper and found some interesting articles about storing SVGs directly on-chain. It seemed to be easy: I just had to convert each pixel from the downscaled camera signal to a rectangle and put them as an SVG-readable matrix inside a container.
+
+```jsx
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+	<rect x="0"  y="0" width="10" fill="#6c88ba"/>
+	<rect x="10" y="0" width="10" fill="#6c88ba"/>
+	<rect x="20" y="0" width="10" fill="#6c88ba"/>
+	{...}
+</svg>
+```
+
+After writing a function for converting the image I ended up with a string containing around 60kb of data, which exceeds the block size limit by far. So I had to shrink down the amount of data. That’s why I came up with the idea to store just the color matrix inside a certain block and to convert this particular matrix back to an SVG once it’s being requested, directly on-chain. It took me some days to understand that it is awfully difficult and computationally expensive to work with two-dimensional arrays inside the Ethereum ecosystem. Plus, I still had to store about 18kb worth of data in a block, so I had to find another solution.
+
+So I came up with the idea to reduce this whole two-dimensional array to one single string looking like this:
+
+```jsx
+var colors = "6c88ba6c88ba6c88ba6c88ba6c88ba6c88ba6c88ba..."
+```
+
+I was able to reduce the data size to around 10kb. So the problem of the storage limitation seemed to be solved. In the end, the problem was, again, the computational limits of the blockchain. Since the Ethereum ecosystem is not designed to work with strings, it was even more expensive to convert the string back into an SVG representation. I was just not able to find an efficient way to store and convert an image directly on-chain. It took me some sleepless nights until I found a solution - all of that just because of a meme.
+
+![svg-meme.jpg](/nff/svg-meme.jpg)
+
+SVGs, in general, are designed to store vector data and represent them in a loss-free way. That means that an SVG image can be resized infinitely without getting pixelated. After remembering this meme from above I had the solution laying directly in front of me. It is obviously possible to store raster images inside an SVG, even better: It is possible to show the base64-encoded version of an image. Which is perfect! No external dependencies, no expensive on-chain SVG creation, just a small string containing around 4kb worth of information.
+
+<h3 id="1.3"> 1.3 Why are the gas fees so high? </h3>
+
+As shown above I was able to reduce the amount of image data to about 4kb — after a successful mint, one block will store about 6kb of data (depending on the length of your text and the properties you were choosing for your entry). This can be four times the amount of data other projects are storing inside a block, that’s why gas fees can be up to four times higher than usual.
+
+At cost of having a decentralized and truly immutable version of yourself on-chain, in my opinion, this is the only way to use blockchain technology with its full capacity. In addition, being completely on-chain is not only support for the idea of using blockchain as a medium, it is probably historically significant since this project seems to be the first-ever storing human faces 100% on-chain.
+
+<h2 id="2."> 2. Artistic Aspects </h2>
+
+<h3 id="2.1"> 2.1 Aura and Reproduction </h3>
+
+If you have your face painted as NFT, then you will only see a pixelated photo of yourself on OpenSea. Doesn't seem very exciting, does it? In reality, there's a huge amount of media theory behind it and it has a lot to do with our time in Web 2.0. With the new blockchain technology, we are on the verge of a new beginning. Finally, our images belong to us again. Finally, the circulation of files on the Internet needs to be rethought. Finally, it is possible to track who is the actual creator (or the first owner) of a file.
+
+For my diploma, I studied aura and its reproducibility both painterly and theoretically. The resulting paintings can be seen here. My theoretical investigations on the subject can be read in my diploma thesis (currently only in German).
+
+The perceptual aura, different from the esoteric one, means, according to Walter Benjamin, the connection of a moment with a place. In his essay “[The Work of Art in the Age of Mechanical Reproduction](https://web.mit.edu/allanmc/www/benjamin.pdf)” Benjamin describes the cultural significance of increased reproducibility of works of art and the concomitant withering away of their originals. Aura is therefore always bound to an original. If this original is reproduced, the aura degenerates. But what does it have to do with this project?
+
+Very much so! When I upload a picture of myself on the Internet, many things happen to the picture afterward. The image is cropped, reduced, pumped up again, pushed through narrow internet connections, so that in the end the one original (that is you), has lost its power through a long chain of reproductions.
+
+<h3 id="2.2"> 2.2 Hanging out on servers has no aura per se</h3>
+
+Hito Steyerl (referring to Benjamin) describes with her text "[In Defense of the Poor Image](https://www.e-flux.com/journal/10/61362/in-defense-of-the-poor-image/)" how the extreme dissemination and circulation of images on the Internet must be understood as a "good" thing. Finally, she says, there is an aura that can exist without its original. Through communities that would form around certain images, the Poor Images would suddenly have inherent political power. And it is this point, which relates to Benjamin's cult value, that would again attach an aura to the Poor Image.
+
+I only agree with this to a limited extent. Even if Hito Steyerl sees the old Internet as a kind of Robin Hood for our world, Steyerl overlooks the monopolistic and centralistic structures of this world, which ensure that the images do not belong to everyone, but above all to those who manage these images on their servers.
+
+There is an important distinction in the mechanism of reproducibility of an art object: Either something is reproduced digitally or analogously. Every digital state is also an ideal state in a system of order. Every analog state, on the other hand, is the distribution of states in a system of disorder. So when I take a picture with a camera, and the picture leaves the analog state and goes into a digital state, an ideal interpretation happens.
+
+That's where this project comes in: You sit in front of the camera, your computer takes a photo, and the digital image (which becomes a new original because of the technical interpretation) is the real beginning of a new chain of reproduction. With the difference that your image is not reproducible (apart from right click save), but can systematically only change hands.
+
+This approach is totally contrary to what Steyerl says, which is why I'm so sold on the idea! We finally belong to ourselves again. Of course, the overdrawn pixels are a deliberate emphasis on the digitization of analog states and the accompanying start of a reproduction chain that is only one step long.
+
+<h2 id="3."> 3. Sociological consideration </h2>
+
+<h3 id="3.1">3.1 Eva Illouz Why Love Hurts </h3>
+
+In my latest work, I have expanded the investigation around aura and reproduction to include its social factor. I believe that many feel as I do: the fatigue, anger, and sadness that overshadows our interpersonal relationships when it comes to modern commitment.
+
+But why is it like that? Why does it hurt so much when my romantic notions of human connection are dashed? Eva Illouz answered this clearly. In her book, Why Love Hurts, she explains the differences between the Victorian and our contemporary relationship market and gets to the heart of our issues.
+
+Of course, in brevity, I can never bring together the many hundreds of pages from Eva Illouz's reflections, but to make a long story short: The capitalization of relationship markets ensures that finding a partner, for example, becomes like buying shoes. On dating apps, to cope with the outsized influx of possibilities, ways must be found to make quick decisions. So potential partners are compared like products: What can I get for the smallest price with the greatest possible profit.
+
+Of course, because these many decisions have to be made quickly and far too many times, a feeling of fatigue, of ambivalence, arises, which kills the first affect and turns into a state of indecision. And here again: What does all this have to do with this project?
+
+<h3 id="3.2"> 3.2 Being part of the market yourself</h3>
+
+Let's take a look at OpenSea: should I hold the NFT for it to possibly increase in value? Should I sell it? Isn't the price already good? Or am I annoyed that I bought this one NFT in the first place? We all know that feeling of excitement and anger. And in the end, it's no longer about the thing itself, but about the monetary value that is created.
+
+I think the connection to our real world is obvious. What happens now when I myself am an NFT and take place in this market? How do I present myself in this market? And how do I deal with the fact that I am the first owner of my own face at the beginning? Do I sell myself? Do I want to buy and trade other faces?
+
+I hope that this project will find at least some answers to the above questions.
+
+<h2 id="4."> Conclusion </h2>
+
+So, having summed up all the technical difficulties, artistic thoughts, and sociological ideas related to this project, I hope that Non-Fungible Faces does not just remain a reference to these themes mentioned. Rather, I hope that people will enjoy this project and that by participating in this project they will help make the new Internet what the old one never was - a place of freedom, equality, and transparency.

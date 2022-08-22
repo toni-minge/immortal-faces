@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
     const data = await axios
       .get(`${base_uri}/${api_key}/${function_name}?contractAddress=${MAINNET_CONTRACT}&withMetadata=true&limit=${limit}&startToken=${start_token}`)
-      console.log(data)
+
     return data.data
   }
 

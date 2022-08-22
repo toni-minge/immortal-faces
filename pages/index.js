@@ -12,6 +12,11 @@ import RoadmapSegment from '../components/roadmap-segment'
 import FaqSegment from '../components/faq-segment'
 import MailchimpSubscribeWrapper from '../components/template/mailchimp-subscribe'
 
+import Properties from '../components/imf/properties'
+import Camera from '../components/imf/camera'
+import MintArea from '../components/imf/mintArea'
+import ProgressOverlay from '../components/imf/progress-overlay'
+
 import { useNffContext } from '../services/context/nff-context'
 
 import {
@@ -22,6 +27,8 @@ import {
   getContractData,
   checkIfWhitelisted,
 } from '../services/actions/nff-functions'
+
+var mobile = require('is-mobile');
 
 const Crosses = () => {
   return (
@@ -36,6 +43,7 @@ const is_light_mode = true
 
 export default function Home() {
   const nff = useNffContext()
+  const isMobile = mobile()
 
   const {
     auth,
@@ -54,32 +62,75 @@ export default function Home() {
   } = nff.state
 
 
-  // // init contract
-  // useEffect(() => {
-  //   _initContract(is_light_mode)
-  // }, [account])
-  //
-  // // get contract
-  // useEffect(() => {
-  //   if (contract !== null){
-  //     getContractData(nff.dispatch, contract)
-  //   }
-  // }, [contract])
-  //
-  // function _initContract(_is_light){
-  //   if (contract === null){
-  //     initContract(nff.dispatch, _is_light)
-  //   }
-  // }
+  // wallet listener
+    useEffect(() => {
+      addWalletListener(nff.dispatch)
+    }, [])
+
+    // get contract
+    useEffect(() => {
+      if (contract !== null){
+        getContractData(nff.dispatch, contract)
+      }
+    }, [contract])
+
+    // init contract
+    useEffect(() => {
+      _initContract(is_light_mode)
+    }, [account])
+
+    // current supply
+    useEffect(() => {
+      if (account !== null){
+        checkIfWhitelisted(nff.dispatch, contract, account)
+      }
+    }, [current_supply])
+
+    // check if whitelisted
+    useEffect(() => {
+      if (account !== null && contract !== null){
+        checkIfWhitelisted(nff.dispatch, contract, account)
+      }
+    }, [account, contract])
+
+    function connectWallet(){
+      connectWalletHandler(nff.dispatch)
+    }
+
+    function getSubstring(string){
+      const a = string.substring(0, 4);
+      const b = '...'
+      const c = string.substring(string.length - 4, string.length)
+      return a + b + c
+    }
+
+    function toggleMode(){
+      _initContract(!is_light_mode)
+      nff.dispatch({type: 'TOGGLE_MODE'})
+    }
+
+    function _initContract(_is_light){
+      if (account !== null){
+        initContract(nff.dispatch, _is_light)
+      }
+    }
 
   return (
-    <div className="p-4 w-screen">
+    <div className="w-screen">
       <Head>
         <title>Immortal Faces - NFT</title>
         <meta name="description" content="Immortal Faces is an NFT project which let you become immortal on the blockchain." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <ProgressOverlay
+        dispatch={nff.dispatch}
+        loading={loading}
+        error={error}
+        txHash={transaction_hash}
+        status={status}/>
+
+      <div className="p-4">
         <section>
           <Crosses />
           <div className="section-content">
@@ -121,6 +172,65 @@ export default function Home() {
           <Crosses />
           <div className="section-content text-center">
             <HowDoesItWorkSegment />
+          </div>
+
+        </section>
+
+        <section>
+          <Crosses />
+          <div className="section-content text-center">
+            <div id="mintArea" className="w-full z-40 relative">
+              {!is_whitelisted && <div className="absolute z-50 top-16 h-full w-full backdrop-blur"></div> }
+              <div className="flex flex-wrap items-start items-center text-left">
+                <div className="w-full flex ">
+                  <h2 className="mb-2 inline-block">Minting Area</h2>
+                    <button
+                      onClick={() => connectWallet()}
+                      className={`px-4 mx-4 h-10 py-0`}>
+                        { account === null ? 'connect wallet' : getSubstring(account) }
+                    </button>
+                </div>
+                <small className="inline-block opacity-50">(Currently only availiable for beta testers)</small>
+              </div>
+
+              <div className="flex flex-wrap justify-center md:justify-start md:gap-16 gap-0 gap-y-8 text-left mt-4">
+                <div className="relative md:w-5/12 w-full">
+                  <div className="sticky top-8 w-full">
+                    <div className="max-w-md w-full md:px-0 mx-auto">
+                      <div className="w-full">
+                        <h3 className="md:text-2xl text-xl text-white nff-font">1. Take a picture</h3>
+                        <Camera isMobile={isMobile}/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:w-6/12 w-full">
+                  <div className="max-w-md w-full mx-auto">
+                    <Properties />
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="max-w-md w-full">
+                      <div className="rounded-xl max-w-md">
+                        <h3 className="md:text-2xl text-xl text-white nff-font mt-8">7. Become Immortal</h3>
+                        <MintArea />
+                      </div>
+
+                      {max_supply !== 0 && max_supply - current_supply === 0 ?
+                        <div className="bg-red-200 rounded-xl p-4 shadow-xl">
+                          <p className="text-center text-dark">
+                            No slots left.
+                          </p>
+                        </div>
+                        : null }
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
 
         </section>
@@ -185,7 +295,7 @@ export default function Home() {
           </div>
 
         </div>
-
+      </div>
     </div>
   )
 }
