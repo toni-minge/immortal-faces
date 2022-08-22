@@ -25,7 +25,7 @@ h2 {
 h3 {
   @apply text-xl;
   @apply sm:text-2xl;
-  @apply md:text-3xl;
+  @apply md:text-3xl mb-2;
 }
 h4 {
   @apply text-xl;
@@ -65,8 +65,12 @@ button {
   @apply border border-white px-4 py-2 rounded-tl-xl rounded-br-xl cursor-pointer;
 }
 
-button:hover {
+button:hover:enabled {
   filter: drop-shadow(0px 0px 10px white)
+}
+
+button:disabled {
+  @apply opacity-50 cursor-not-allowed;
 }
 
 button.active-button {

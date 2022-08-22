@@ -21,7 +21,7 @@ const initState = {
   transaction_hash: '',
   contract: null,
   auth: false,
-  is_light_mode: false,
+  is_light_mode: true,
   account: null,
   is_whitelisted: false,
   public_cost: "0.08",
