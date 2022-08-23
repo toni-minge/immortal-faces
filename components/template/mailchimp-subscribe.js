@@ -99,6 +99,13 @@ const CustomForm = ({ status, message, onValidated }) => {
           </div>
         </div>
         <br />
+        <div className="w-full border-b border-white"></div>
+        <div className="w-full py-4 text-small">
+          <label>
+            <input className="mr-2" type="checkbox" required/>
+            <span>I hereby agree to receive newsletters from Immortal Faces NFT.</span>
+          </label>
+        </div>
         <button
           className="hover:border-gray-400 hover:text-gray-400 w-full py-2 border-white border"
           onClick={submit}>

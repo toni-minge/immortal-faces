@@ -180,7 +180,7 @@ export default function Home() {
           <Crosses />
           <div className="section-content text-center">
             <div id="mintArea" className="w-full z-40 relative">
-              {!is_whitelisted && <div className="absolute z-50 top-16 h-full w-full backdrop-blur"></div> }
+              {!is_whitelisted && <div className="absolute z-50 top-20 h-full w-full backdrop-blur"></div> }
               <div className="flex flex-wrap items-start items-center text-left">
                 <div className="w-full flex ">
                   <h2 className="mb-2 inline-block">Minting Area</h2>
@@ -285,7 +285,7 @@ export default function Home() {
             </div>
         </section>
 
-        <div className="footer w-full border-t white p-8 flex-col flex gap-2">
+        <div className="footer w-full border-t white p-4 flex-col flex gap-2">
           <div>
             <Link href="/imprint">Imprint</Link>
 
