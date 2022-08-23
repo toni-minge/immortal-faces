@@ -129,7 +129,7 @@ const MailchimpSubscribeWrapper = () => {
               onValidated={formData => subscribe(formData)} />
             {status === "sending" && <div className="text-blue-400 text-xs mt-4">sending...</div>}
             {status === "error" && <div className="text-red-400 text-xs mt-4" dangerouslySetInnerHTML={{__html: message}}/>}
-            {status === "success" && <div className="text-green-400 text-xs mt-4">Subscribed!</div>}
+            {status === "success" && <div className="text-green-400 text-xs mt-4">Subscribed! Please Confirm your e-mail address.</div>}
           </div>
         )}
       />
