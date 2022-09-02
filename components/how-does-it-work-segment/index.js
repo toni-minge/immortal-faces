@@ -21,8 +21,8 @@ const how_does_it_work_elements = [
   },
   {
     'img': './elements/how_to_05.svg',
-    'title': 'Immortal Society',
-    'text': 'Help us to complete the Immortal Society, a combination of 1024 individuals. 8 rounds each.'
+    'title': 'Ethernal Society',
+    'text': 'Help us to complete the Ethernal Society, a combination of 1024 individuals. 8 rounds each.'
   }
 ]
 
