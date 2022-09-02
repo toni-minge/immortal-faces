@@ -8,8 +8,8 @@ const roadmap_elements = [
     'text': 'After 1024 faces are generated the mint will be closed until the next round starts.'
   },
   {
-    'title': 'Immortal Society',
-    'text': 'An image of the Immortal Society will be generated containing all faces of one round.'
+    'title': 'Ethernal Society',
+    'text': 'An image of the Ethernal Society will be generated containing all faces of one round.'
   },
   {
     'title': 'Auction',
@@ -21,7 +21,7 @@ const roadmap_elements = [
   },
   {
     'title': 'Payout',
-    'text': 'Earnings will go back to the community, including royalities and Immortal Society sells.'
+    'text': 'Earnings will go back to the community, including royalities and Ethernal Society sells.'
   },
   {
     'title': 'Project End',

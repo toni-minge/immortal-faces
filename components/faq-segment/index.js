@@ -3,8 +3,8 @@ import MobileCollapseItem from './mobile-collapse-item'
 
 const faq_elements = [
   {
-    'question': 'Who is behind Immortal Faces NFT?',
-    'answer': <><p>The project was initiated by Toni Minge, painter and programmer from Berlin.  </p><p><a target="_blank" rel="noreferrer" href="https://toniminge.de">Toni Minge</a>, born in a cold summer in 1995, was raised in a small village in the desert of Germany – so-called Saxony-Anhalt. From there he found his way to Leipzig where he studied fine arts at <a target="_blank" rel="noreferrer" href="https://www.hgb-leipzig.de/">Hochschule für Grafik und Buchkunst</a>. After then everything changed: Berlin has become his new home.</p><p>Since 2019, he leads his own agency <a target="_blank" rel="noreferrer" href="https://minge-schmidt.com">Minge+Schmidt</a> as founder and head of programming with his good friend and co-founder Johannes Schmidt. Together they have worked with a wide range of clients including Native Instruments, Arte, TU Berlin, yoona.ai and many more.</p><p>A crucial theme for Toni Minge&apos;s artistic work is the investigation of non-esoteric aura and its reproducibility. The capitalization and digitalization of social structures play an essential role in this, which is also the origin of Toni Minge&apos;s latest project: &quotImmortal Faces&quot. An attempt to investigate the influence of capital and digitality in human interaction through NFTs. </p></>
+    'question': 'Who is behind Ethernal Faces NFT?',
+    'answer': <><p>The project was initiated by Toni Minge, painter and programmer from Berlin.  </p><p><a target="_blank" rel="noreferrer" href="https://toniminge.de">Toni Minge</a>, born in a cold summer in 1995, was raised in a small village in the desert of Germany – so-called Saxony-Anhalt. From there he found his way to Leipzig where he studied fine arts at <a target="_blank" rel="noreferrer" href="https://www.hgb-leipzig.de/">Hochschule für Grafik und Buchkunst</a>. After then everything changed: Berlin has become his new home.</p><p>Since 2019, he leads his own agency <a target="_blank" rel="noreferrer" href="https://minge-schmidt.com">Minge+Schmidt</a> as founder and head of programming with his good friend and co-founder Johannes Schmidt. Together they have worked with a wide range of clients including Native Instruments, Arte, TU Berlin, yoona.ai and many more.</p><p>A crucial theme for Toni Minge&apos;s artistic work is the investigation of non-esoteric aura and its reproducibility. The capitalization and digitalization of social structures play an essential role in this, which is also the origin of Toni Minge&apos;s latest project: "Ethernal Faces". An attempt to investigate the influence of capital and digitality in human interaction through NFTs. </p></>
   },
   {
     'question': 'What is an NFT?',
@@ -28,11 +28,11 @@ const faq_elements = [
   },
   {
     'question': 'How many people can participate in the project?',
-    'answer': <p>Immortal Faces is divided into 8 rounds of 1024 participants each. This means that in the end a maximum of 8192 people can participate.</p>
+    'answer': <p>Ethernal Faces is divided into 8 rounds of 1024 participants each. This means that in the end a maximum of 8192 people can participate.</p>
   },
   {
-    'question': 'What is an Immortal Society?',
-    'answer': <p>The Immortal Society is a community of 1024 participants in the Immortal Faces project. There will be 8 rounds in total.</p>
+    'question': 'What is an Ethernal Society?',
+    'answer': <p>The Ethernal Society is a community of 1024 participants in the Ethernal Faces project. There will be 8 rounds in total.</p>
   },
   {
     'question': 'How will my image be stored?',
@@ -43,8 +43,8 @@ const faq_elements = [
     'answer': <p>In particular, the Ethereum Blockchain (which is what this project is running on) is designed to store information in the most decentralized and transparent way possible in a tamper-proof way. Thus, it will never be possible to delete your NFT. Which means that as long as the Ethereum blockchain exists, the proof of your NFT can never be lost.</p>
   },
   {
-    'question': 'Why would I create an NFT of myself with Immortal Faces and not create my own NFT without Immortal Faces?',
-    'answer': <p>Only those who own an Immortal Faces NFT will be entitled to receive proceeds from the resales of the individual NFTs and Immortal Society NFTs.</p>
+    'question': 'Why would I create an NFT of myself with Ethernal Faces and not create my own NFT without Ethernal Faces?',
+    'answer': <p>Only those who own an Ethernal Faces NFT will be entitled to receive proceeds from the resales of the individual NFTs and Ethernal Society NFTs.</p>
   },
   {
     'question': 'Why should I sell an NFT of me?',
@@ -56,7 +56,7 @@ const faq_elements = [
   },
   {
     'question': 'What will happen after mint is over?',
-    'answer': <><p>All proceeds from resales will continue to go to a Smart Contract that allows Immortal Faces NFT owners to cash out their pro-rated proceeds on a regular basis, forever.</p><p>Finally, there will be a large physical exhibition showcasing the results from this project.</p></>
+    'answer': <><p>All proceeds from resales will continue to go to a Smart Contract that allows Ethernal Faces NFT owners to cash out their pro-rated proceeds on a regular basis, forever.</p><p>Finally, there will be a large physical exhibition showcasing the results from this project.</p></>
   },
   {
     'question': 'Is the NFF Smart Contract verified?',
