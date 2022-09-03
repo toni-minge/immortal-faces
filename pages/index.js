@@ -118,7 +118,7 @@ export default function Home() {
   return (
     <div className="w-screen">
       <Head>
-        <title>Immortal Faces - NFT</title>
+        <title>Ethernal Faces - NFT</title>
         <meta name="description" content="Immortal Faces is an NFT project which let you become immortal on the blockchain." />
         <link rel="icon" href="/favicon.ico" />
       </Head>

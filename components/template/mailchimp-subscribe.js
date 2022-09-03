@@ -103,7 +103,7 @@ const CustomForm = ({ status, message, onValidated }) => {
         <div className="w-full py-4 text-small">
           <label>
             <input className="mr-2" type="checkbox" required/>
-            <span>I hereby agree to receive newsletters from Immortal Faces NFT.</span>
+            <span>I hereby agree to receive newsletters from Ethernal Faces NFT.</span>
           </label>
         </div>
         <button
