@@ -48,16 +48,19 @@ export default function CommunitySegment({nffState}) {
         const gender = d.metadata?.attributes?.find(a => a.trait_type === 'gender')?.value
         const age = d.metadata?.attributes?.find(a => a.trait_type === 'age')?.value
 
-        return (
-          <div style={{maxWidth: '250px'}} className="mx-auto w-full" key={'face_' + i}>
-            <div style={{paddingBottom: '100%'}} className="relative w-full mb-3">
-              <img className="mb-2 absolute w-full" src={d.media[0].raw}/>
+        if (mood && gender && age) {
+          return (
+            <div style={{maxWidth: '250px'}} className="mx-auto w-full" key={'face_' + i}>
+              <div style={{paddingBottom: '100%'}} className="relative w-full mb-3">
+                <img className="mb-2 absolute w-full" src={d.media[0].raw}/>
+              </div>
+              <span className="text-xl mb-2 block">{d.metadata?.name}, {age}</span>
+              <p className="mb-1">{d.metadata?.description}</p>
+              <span className="community-badge">{mood}</span>
             </div>
-            <span className="text-xl mb-2 block">{d.metadata?.name}, {age}</span>
-            <p className="mb-1">{d.metadata?.description}</p>
-            <span className="community-badge">{mood}</span>
-          </div>
-          )
+            )
+          }
+
         }
       )}
       {loading &&
