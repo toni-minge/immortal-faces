@@ -32,7 +32,7 @@ const faq_elements = [
   },
   {
     'question': 'What is an Ethernal Society?',
-    'answer': <p>The Ethernal Society is a community of 1024 participants in the Ethernal Faces project. There will be 8 rounds in total.</p>
+    'answer': <><p>The Ethernal Society is a community of 1024 participants in the Ethernal Faces project.</p><p>Every society will get their own large NFT, which will be auctioned off. Similar to the big Beeple NFT. The proceeds go back to the Cummunity.</p><p> There will be 8 rounds in total.</p></>
   },
   {
     'question': 'How will my image be stored?',
@@ -72,7 +72,7 @@ export default function FaqSegment() {
   }
 
   return (
-    <div className="w-full text-left">
+    <div id="faq" className="w-full text-left">
       <div className="">
         <img className="h-24 -ml-2 -mb-8  cromatic-aberration-effect-sm" src="./elements/symbol_05.png"/>
         <h2 className="mb-12">Frequently Asked Questions</h2>

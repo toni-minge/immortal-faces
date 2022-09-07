@@ -138,8 +138,10 @@ export default function Home() {
               <img className="h-16 mx-auto mb-4 logo-hover  cromatic-aberration-effect-sm" src="/elements/imf_logo.svg"/>
               <img className="h-14 mx-auto cromatic-aberration-effect-sm" src="/elements/ethf_logo.svg"/>
               <span className="green-glow">Become immortal on <br/>the blockchain</span>
-              <a href="#about" className="no-underline w-48 rounded-tl-xl rounded-br-xl mt-8 mx-auto py-1 px-1 bg-white text-dark cromatic-aberration-effect-sm"> GET STARTED </a>
-              <small className="opacity-60">pre-launch begins <br/>end of september</small>
+              <small className="opacity-60">pre-launch begins Q4</small>
+              <a href="#about" className="no-underline w-48 rounded-tl-xl rounded-br-xl mt-8 mx-auto py-1 px-1 bg-white text-dark cromatic-aberration-effect-sm"> Become Immortal </a>
+
+              <Link href="/payout"><a className="no-underline w-48 border rounded-tl-xl rounded-br-xl mx-auto py-1 px-1">Get your Payouts</a></Link>
             </div>
           </div>
         </section>
