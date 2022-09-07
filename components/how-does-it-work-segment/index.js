@@ -28,7 +28,7 @@ const how_does_it_work_elements = [
 
 export default function HowDoesItWorkSegment() {
   return (
-    <div className="w-full">
+    <div id="how-does-it-work" className="w-full">
       <img className="h-24 -mb-6 mx-auto cromatic-aberration-effect-sm" src="./elements/symbol_01.png"/>
       <h2 className="-mt-8 mb-12">How does it work?</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 sm:grid-cols-2 gap-8 gap-y-12">

@@ -61,8 +61,16 @@ section {
   }
 }
 
+.nff-container {
+  @apply mx-auto max-w-4xl;
+}
+
+.container-border {
+  @apply border border-white p-4 rounded-tl-xl rounded-br-xl;
+}
+
 button {
-  @apply border border-white px-4 py-2 rounded-tl-xl rounded-br-xl cursor-pointer;
+  @apply border border-white px-4 py-1 rounded-tl-xl rounded-br-xl cursor-pointer;
 }
 
 button:hover:enabled {
