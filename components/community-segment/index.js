@@ -52,7 +52,10 @@ export default function CommunitySegment({nffState}) {
           return (
             <div style={{maxWidth: '250px'}} className="mx-auto w-full" key={'face_' + i}>
               <div style={{paddingBottom: '100%'}} className="relative w-full mb-3">
-                <img className="mb-2 absolute w-full" src={d.media[0].raw}/>
+                <img className="mb-2 absolute w-full z-10" src={d.media[0].raw}/>
+                <div className="absolute mb-2 w-full h-full grid items-center">
+                  <Spinner />
+                </div>
               </div>
               <span className="text-xl mb-2 block">{d.metadata?.name}, {age}</span>
               <p className="mb-1">{d.metadata?.description}</p>

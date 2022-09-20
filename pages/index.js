@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import Link from 'next/link'
 import Head from 'next/head'
@@ -43,7 +43,9 @@ const is_light_mode = true
 
 export default function Home() {
   const nff = useNffContext()
-  const isMobile = mobile()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => setIsMobile(mobile()))
 
   const {
     auth,
@@ -156,7 +158,9 @@ export default function Home() {
                 <p>With Ethernal Faces NFT you can become immortal as an NFT. Not only that, as a member of the Ethernal Society you become part of something bigger, part of a complex work of art. And in addition, you can earn some money, since all proceeds go back into the community.</p>
               </div>
               <div className="md:w-7/12 w-full">
-                <img src="./img/header_video_test.jpg"/>
+                <video className="border " poster="./img/header_video_test.jpg" playsInline controls>
+                  <source src="./elements/ethernal_promo_compressed.mp4"></source>
+                </video>
               </div>
             </div>
           </div>
