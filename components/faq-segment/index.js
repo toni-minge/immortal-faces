@@ -16,14 +16,14 @@ const faq_elements = [
   },
   {
     'question': 'How much is one mint?',
-    'answer': <p>The price of one mint will be 0.2 ETH, exluding gas fees.</p>
+    'answer': <p>The price of one mint will be 0.1 ETH, exluding gas fees.</p>
   },
   {
     'question': 'What do I need to join?',
     'answer': <p>To join, all you need is a MetaMask wallet, a webcam, a Desktop PC and enough ETH funds.</p>
   },
   {
-    'question': 'How many NFTs can I mine?',
+    'question': 'How many NFTs can I mint?',
     'answer': <p>Everyone can mine as many NFTs of themselves as they want.</p>
   },
   {
