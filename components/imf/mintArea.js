@@ -51,6 +51,7 @@ const MintArea = () => {
   properties.mood !== null &&
   properties.description !== '' &&
   properties.age !== '' &&
+  properties.accepted_terms !== false &&
   image !== null &&
   account !== null &&
   max_supply - current_supply !== 0

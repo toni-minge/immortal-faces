@@ -6,7 +6,7 @@ import {
 
 const statusText = {
   'init': 'The process is being initialized.',
-  'mining': 'Your face is being minted. This could take a while.',
+  'minting': 'Your face is being minted. This could take a while.',
   'success': 'You just became immortal. It can take some minutes until you see your face in your wallet.',
 }
 
@@ -57,7 +57,7 @@ const Progress = ({dispatch, error, status, loading, txHash}) => {
                 </div>
               : null}
               {error ?
-                <p className="text-red-500">An Error occured. Please try again later</p>
+                <p className="text-red-500">An Error occured. Please try again later.</p>
                 : null }
               {error === null ?
                 <p className="text-dark">{statusText[status]}</p>

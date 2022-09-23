@@ -1,4 +1,4 @@
-const filestore_key = process.env.FILESTORE_API_KEY
+const filestore_key = process.env.NEXT_PUBLIC_FILESTORE_API_KEY
 
 import axios from 'axios'
 import { ethers } from 'ethers';
@@ -225,7 +225,7 @@ export const mintNffHandlerLight = async (dispatch, props, image, contract, cost
       nftTxn = await nftContract.mint(uri, overrides)
     }
 
-    dispatch({type: 'SET_STATUS', payload: 'mining'})
+    dispatch({type: 'SET_STATUS', payload: 'minting'})
     await nftTxn.wait();
 
     dispatch({type: 'SET_TRANSACTION_HASH', payload: nftTxn.hash})
