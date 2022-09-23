@@ -16,7 +16,7 @@ const mood_options = [
 
 const Properties = () => {
   const nff = useNffContext()
-  const { properties, video_ref, canvas_ref, image, image_settings, svg_ref, base64, account, is_light_mode} = nff.state
+  const { properties, video_ref, canvas_ref, image, image_settings, svg_ref, base64, account, is_light_mode, accepted_terms} = nff.state
 
 
   function handleInput(key, value){
@@ -105,6 +105,23 @@ const Properties = () => {
           onChange={(e) => handleInput('description', e.target.value)}
           value={properties.description}
           className={`${is_light_mode ? 'nff-light-tint' : 'nff-dark-tint'} text-dark w-full py-2 px-4 outline-none resize-none mb-4`}/>
+      </div>
+
+      <div className="flex flex-col">
+        <div className="flex w-full items-center mb-2">
+          <h3 className="md:text-2xl text-xl text-white nff-font">7. Terms and Conditions</h3>
+        </div>
+        <div className="">
+          <label className="flex gap-4 items-start" forhtml="terms">
+            <input
+              className="mt-1"
+              onChange={(e) => handleInput('accepted_terms', !properties.accepted_terms)}
+              checked={properties.accepted_terms}
+              id="terms"
+              type="checkbox"/>
+            <p className="opacity-50">I agree that the photos created by Ethernal Faces may be used and distributed as NFTs by the respective owners of the NFTs including the Artist Toni Minge without any restrictions in terms of time, space, subject matter and content. I have been informed about the right to my own image according to <a target="blank" rel="noopener" href="https://www.gesetze-im-internet.de/kunsturhg/__22.html">§ 22 KunstUrhG.</a></p>
+          </label>
+        </div>
       </div>
     </div>
   )

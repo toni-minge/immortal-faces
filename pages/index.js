@@ -17,6 +17,8 @@ import Camera from '../components/imf/camera'
 import MintArea from '../components/imf/mintArea'
 import ProgressOverlay from '../components/imf/progress-overlay'
 
+import { MenuOverlay, BurgerMenu } from '../components/template/menu'
+
 import { useNffContext } from '../services/context/nff-context'
 
 import {
@@ -44,11 +46,13 @@ const is_light_mode = true
 export default function Home() {
   const nff = useNffContext()
   const [isMobile, setIsMobile] = useState(false)
+  const [menuActive, setMenuActive] = useState(false)
 
   useEffect(() => setIsMobile(mobile()))
 
   const {
     auth,
+    is_prelaunch,
     is_light_mode,
     account,
     transaction_hash,
@@ -132,9 +136,14 @@ export default function Home() {
         txHash={transaction_hash}
         status={status}/>
 
+      <MenuOverlay active={menuActive} setActive={setMenuActive}/>
+
       <div className="p-4">
         <section>
-          <Crosses />
+          <Cross pos='tl'/>
+          <div className={`col-start-3`}>
+            <BurgerMenu active={menuActive} setActive={setMenuActive}/>
+          </div>
           <div className="section-content">
             <div className="flex flex-col text-center gap-4">
               <img className="h-16 mx-auto mb-4 logo-hover  cromatic-aberration-effect-sm" src="/elements/imf_logo.svg"/>
@@ -156,6 +165,9 @@ export default function Home() {
                 <img className="h-24 -ml-2 -mb-6 cromatic-aberration-effect-sm" src="./elements/symbol_02.png"/>
                 <h2 className="mb-4">What is <br/> Ethernal Faces NFT?</h2>
                 <p>With Ethernal Faces NFT you can become immortal as an NFT. Not only that, as a member of the Ethernal Society you become part of something bigger, part of a complex work of art. And in addition, you can earn some money, since all proceeds go back into the community.</p>
+                <a href="#mintingArea" className="no-underline mb-8 w-48 block rounded-tl-xl rounded-br-xl mt-8 text-center py-1 px-1 bg-white text-dark cromatic-aberration-effect-sm">
+                  Become Immortal
+                </a>
               </div>
               <div className="md:w-7/12 w-full">
                 <video className="border " poster="./img/header_video_test.jpg" playsInline controls>
@@ -174,7 +186,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section id="howDoesItWork">
           <Crosses />
           <div className="section-content text-center">
             <HowDoesItWorkSegment />
@@ -182,10 +194,11 @@ export default function Home() {
 
         </section>
 
-        <section>
+        <section id="mintingArea">
           <Crosses />
           <div className="section-content text-center">
             <div id="mintArea" className="w-full z-40 relative">
+              {/* Remove when pre-launch is over */}
               {!is_whitelisted && <div className="absolute z-50 top-20 h-full w-full backdrop-blur"></div> }
               <div className="flex flex-wrap items-start items-center text-left">
                 <div className="w-full flex ">
@@ -225,7 +238,7 @@ export default function Home() {
 
                       {max_supply !== 0 && max_supply - current_supply === 0 ?
                         <div className="bg-red-200 rounded-xl p-4 shadow-xl">
-                          <p className="text-center text-dark">
+                          <p className="text-center">
                             No slots left.
                           </p>
                         </div>
@@ -241,7 +254,7 @@ export default function Home() {
 
         </section>
 
-        <section>
+        <section id="memberArea">
           <Crosses />
           <div className="section-content">
             <div>
@@ -262,7 +275,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section id="roadmap">
           <Crosses />
           <div className="section-content text-center">
             <div>
@@ -273,7 +286,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section id="faq">
           <Crosses />
           <div className="section-content text-center">
             <FaqSegment />

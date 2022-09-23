@@ -38,7 +38,7 @@ const Camera = ({isMobile}) => {
   const init_orientation = getOrientation();
   const nff = useNffContext()
 
-  const { image, image_settings, base64, is_light_mode } = nff.state
+  const { image, image_settings, base64, is_light_mode, is_prelaunch, is_whitelisted } = nff.state
 
   const [streamSettings, setStreamSettings ] = useState(null)
   const [videoError, setVideoError] = useState(null)
@@ -201,12 +201,13 @@ const Camera = ({isMobile}) => {
   return (
     <div className="w-full mb-6">
       <div style={{paddingBottom: '100%', backgroundColor: '#252526'}} className={`relative w-full overflow-hidden ${is_light_mode ? 'nff-light-tint' : 'nff-dark-tint'}`}>
-        <video
+        {/* remove is_whitelisted after prelaunch */}
+        {is_whitelisted && <video
           playsInline
           autoPlay={true}
           onCanPlay={() => paintToCanvas(streamSettings, init_orientation.type)}
           className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full"
-          ref={videoRef}/>
+          ref={videoRef}/>}
         {true ?
           <div className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
             <button
@@ -221,7 +222,8 @@ const Camera = ({isMobile}) => {
 
           </div>
         : null}
-        {streamSettings ?
+        {/* remove is_whitelisted after prelaunch */}
+        {streamSettings && is_whitelisted ?
           <canvas
             width={1000}
             height={1000}
