@@ -149,6 +149,35 @@ button.active-button {
   transform: translateY(-14px) rotate(-45deg) ;
 }
 
+@media (max-width: 767px) {
+  .burger-container .line:nth-child(1){
+    top: 0px;
+    transform: translateY(0px) rotate(0deg) ;
+  }
+
+  .burger-container .line:nth-child(2){
+    top: 11px;
+    transform: translateY(0px) rotate(0deg) ;
+  }
+
+  .burger-container .line:nth-child(3){
+    bottom: 0px;
+    transform: translateY(0px) rotate(0deg) ;
+  }
+
+  .burger-container.active .line:nth-child(1){
+    transform: translateY(10px) rotate(45deg) ;
+  }
+
+  .burger-container.active .line:nth-child(2){
+    opacity: 0;
+  }
+
+  .burger-container.active .line:nth-child(3){
+    transform: translateY(-12px) rotate(-45deg) ;
+  }
+}
+
 
 .spinner {
   animation: rotate 2s linear infinite;
