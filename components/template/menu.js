@@ -43,7 +43,7 @@ const BurgerMenu = ({active, setActive}) => {
 
   return (
     <div onClick={() => setActive(!active)}>
-      <button className={`border-0 relative h-8 w-10 block mx-auto burger-container ${active && 'active'}`}>
+      <button className={`border-0 relative md:h-8 md:w-10 h-6 w-6 md:pr-0 pr-2 block mx-auto burger-container ${active && 'active'}`}>
         <span className="line"></span>
         <span className="line"></span>
         <span className="line"></span>

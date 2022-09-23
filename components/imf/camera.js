@@ -201,13 +201,12 @@ const Camera = ({isMobile}) => {
   return (
     <div className="w-full mb-6">
       <div style={{paddingBottom: '100%', backgroundColor: '#252526'}} className={`relative w-full overflow-hidden ${is_light_mode ? 'nff-light-tint' : 'nff-dark-tint'}`}>
-        {/* remove is_whitelisted after prelaunch */}
-        {is_whitelisted && <video
+        <video
           playsInline
           autoPlay={true}
           onCanPlay={() => paintToCanvas(streamSettings, init_orientation.type)}
           className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full"
-          ref={videoRef}/>}
+          ref={videoRef}/>
         {true ?
           <div className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
             <button

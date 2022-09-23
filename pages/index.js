@@ -209,7 +209,13 @@ export default function Home() {
                         { account === null ? 'connect wallet' : getSubstring(account) }
                     </button>
                 </div>
-                <small className="inline-block opacity-50">(Currently only availiable for pre-launch members)</small>
+                <small className="inline-block opacity-50">
+                  {account === null ? 
+                    "(Currently only availiable for pre-launch members)" :
+                    "(You are not whitelisted)"
+                  }
+
+                </small>
               </div>
 
               <div className="flex flex-wrap justify-center md:justify-start md:gap-16 gap-0 gap-y-8 text-left mt-4 scale-95">
