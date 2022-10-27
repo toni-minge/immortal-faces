@@ -222,7 +222,7 @@ const Camera = ({isMobile}) => {
           </div>
         : null}
         {/* remove is_whitelisted after prelaunch */}
-        {streamSettings && is_whitelisted ?
+        {streamSettings ?
           <canvas
             width={1000}
             height={1000}

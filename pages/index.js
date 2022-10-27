@@ -179,8 +179,11 @@ export default function Home() {
 
           <div className="section-icon-container">
             <div className="flex gap-4">
-              <a target="_blank" rel="noreferrer" href="https://twitter.com/immortal_faces">
+              <a target="_blank" rel="noreferrer" href="https://twitter.com/ethernal_faces">
                 <img className="h-8" src="./elements/icons8-twitter.svg" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://discord.gg/9undXtj7">
+                <img className="h-8" src="./elements/icons8-discord-logo.svg" />
               </a>
             </div>
           </div>
@@ -199,7 +202,7 @@ export default function Home() {
           <div className="section-content text-center">
             <div id="mintArea" className="w-full z-40 relative">
               {/* Remove when pre-launch is over */}
-              {!is_whitelisted && <div className="absolute z-50 top-20 h-full w-full backdrop-blur"></div> }
+              {!is_whitelisted || true && <div className="absolute z-50 top-20 h-full w-full backdrop-blur"></div> }
               <div className="flex flex-wrap items-start items-center text-left">
                 <div className="w-full flex ">
                   <h2 className="mb-2 inline-block">Minting Area</h2>
@@ -210,7 +213,7 @@ export default function Home() {
                     </button>
                 </div>
                 <small className="inline-block opacity-50">
-                  {account === null ? 
+                  {account === null ?
                     "(Currently only availiable for pre-launch members)" :
                     "(You are not whitelisted)"
                   }
@@ -270,7 +273,7 @@ export default function Home() {
                   Our Latest Members
                 </h2>
                 <span className="inline-block sm:ml-4 underline green-glow cursor-pointer">
-                  <a target="_blank" rel="noreferrer" href="https://opensea.io/collection/non-fungible-faces-off-chain">See more on OpenSea</a>
+                  <a target="_blank" rel="noreferrer" href="https://opensea.io/collection/ethernal-faces">See more on OpenSea</a>
                 </span>
               </div>
 
