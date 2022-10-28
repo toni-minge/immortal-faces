@@ -182,7 +182,7 @@ export default function Home() {
               <a target="_blank" rel="noreferrer" href="https://twitter.com/ethernal_faces">
                 <img className="h-8" src="./elements/icons8-twitter.svg" />
               </a>
-              <a target="_blank" rel="noreferrer" href="https://discord.gg/9undXtj7">
+              <a target="_blank" rel="noreferrer" href="https://discord.gg/va5DwNPSvf">
                 <img className="h-8" src="./elements/icons8-discord-logo.svg" />
               </a>
             </div>
